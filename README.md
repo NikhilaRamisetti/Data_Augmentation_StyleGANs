@@ -20,5 +20,42 @@ It is known for:
 * State-of-the-Art Image Synthesis
 * Transfer Learning
 
-In this repository we will be using pre-trained 
+## Getting Started
+To get started with this project, follow the code snippets and detailed code is mentioned in the notebook in this repositor
+#### **Setting Up the Dataset and Environment**: 
 
+**Dataset:**
+https://huggingface.co/datasets/huggan/CelebA-HQ
+
+
+
+#### **Pre-trained Model and training further**
+In this repository we will be using pre-trained styleGAN model of nvidia.
+
+[StyleGAN3 pre-trained models](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/research/models/stylegan3) for config T (translation equiv.) and config R (translation and rotation equiv.)
+```
+Access individual networks via https://api.ngc.nvidia.com/v2/models/nvidia/research/stylegan3/versions/1/files/<MODEL>, where <MODEL> is one of:
+stylegan3-t-ffhq-1024x1024.pkl, stylegan3-t-ffhqu-1024x1024.pkl, stylegan3-t-ffhqu-256x256.pkl
+stylegan3-r-ffhq-1024x1024.pkl, stylegan3-r-ffhqu-1024x1024.pkl, stylegan3-r-ffhqu-256x256.pkl
+stylegan3-t-metfaces-1024x1024.pkl, stylegan3-t-metfacesu-1024x1024.pkl
+stylegan3-r-metfaces-1024x1024.pkl, stylegan3-r-metfacesu-1024x1024.pkl
+stylegan3-t-afhqv2-512x512.pkl
+stylegan3-r-afhqv2-512x512.pkl
+stylegan-celebahq-1024x1024.pkl
+```
+We are using stylegan-celebahq-1024x1024.pkl pre-trained model on celebA hq dataset
+```python3
+!python train.py --outdir=./results --cfg=stylegan3-t --data=/content/drive/MyDrive/stylegan_xl/data/unsplash-landscapes-1024.zip \
+--gpus=1 --batch=32 --batch-gpu=4 --gamma=10.0 --mirror=1 --kimg=5000 --snap=1 \
+--resume=https://api.ngc.nvidia.com/v2/models/nvidia/research/stylegan3/versions/1/files/stylegan-celebahq-1024x1024.pkl
+```
+
+### Generating images on trained dataset
+Here are the results for the same celebA dataset
+
+```python3
+!python gen_images.py --help
+```
+
+```python3
+```

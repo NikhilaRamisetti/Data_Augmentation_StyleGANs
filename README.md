@@ -27,7 +27,13 @@ To get started with this project, follow the code snippets and detailed code is 
 **Dataset:**
 https://huggingface.co/datasets/huggan/CelebA-HQ
 
+We are importing the dataset from datasets library 
+```python3
+!pip install datasets
 
+from datasets import load_dataset
+dataset = load_dataset("huggan/CelebA-HQ")
+```
 
 #### **Pre-trained Model and training further**
 In this repository we will be using pre-trained styleGAN model of nvidia.
@@ -55,7 +61,4 @@ Here are the results for the same celebA dataset
 
 ```python3
 !python gen_images.py --help
-```
-
-```python3
 ```

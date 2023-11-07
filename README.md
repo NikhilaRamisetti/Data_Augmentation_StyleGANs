@@ -20,6 +20,9 @@ It is known for:
 * State-of-the-Art Image Synthesis
 * Transfer Learning
 
+Here is the visual representation of the style GAN
+![Alt text](<Idea of style GAN.png>)
+
 ## Getting Started
 To get started with this project, follow the code snippets and detailed code is mentioned in the notebook in this repositor
 #### **Setting Up the Dataset and Environment**: 
@@ -60,5 +63,11 @@ We are using stylegan-celebahq-1024x1024.pkl pre-trained model on celebA hq data
 Here are the results for the same celebA dataset
 
 ```python3
-!python gen_images.py --help
+!python gen_images.py --outdir=outputs --trunc=1 --seeds=2 \
+    --network=https://api.ngc.nvidia.com/v2/models/nvidia/research/stylegan3/versions/1/files/stylegan3-r-afhqv2-512x512.pkl
 ```
+Amidst the training 
+![Alt text](outputs/out2.png)
+
+Almost after ages
+![Alt text](outputs/out1.png)
